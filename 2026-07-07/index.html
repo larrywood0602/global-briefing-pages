@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>全球热点早报 | 2026-07-07</title>
+  <style>
+
+:root {
+  --bg: #f5f1e8;
+  --paper: rgba(255,255,255,0.72);
+  --card: rgba(255,255,255,0.82);
+  --ink: #16202a;
+  --muted: #5f6b76;
+  --line: rgba(22,32,42,.12);
+  --accent: #0f766e;
+  --accent-2: #c2410c;
+  --gold: #b45309;
+  --blue: #1d4ed8;
+  --red: #b91c1c;
+  --shadow: 0 24px 80px rgba(16,24,40,.12);
+  --radius: 24px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+h1, h2, h3, .eyebrow, .tag, .news-meta, .stat, .summary-item, .why {
+  writing-mode: horizontal-tb;
+  text-orientation: mixed;
+  word-break: normal;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+body {
+  margin: 0;
+  font-family: -apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,"PingFang SC","Hiragino Sans GB","Noto Sans CJK SC","Microsoft YaHei",sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 10% 20%, rgba(29,78,216,.08), transparent 28%),
+    radial-gradient(circle at 85% 18%, rgba(180,83,9,.10), transparent 26%),
+    radial-gradient(circle at 50% 80%, rgba(15,118,110,.10), transparent 30%),
+    linear-gradient(180deg, #f9f6ef 0%, #efe8da 100%);
+  overflow-x: hidden;
+}
+.ambient, .ambient:before, .ambient:after {
+  position: fixed; inset: auto; pointer-events: none; z-index: 0; content: "";
+  width: 42vw; height: 42vw; border-radius: 50%; filter: blur(80px); opacity: .35;
+  animation: float 18s ease-in-out infinite;
+}
+.ambient { top: -10vw; left: -8vw; background: rgba(29,78,216,.10); }
+.ambient:before { top: 16vh; right: -16vw; background: rgba(15,118,110,.10); animation-delay: -6s; }
+.ambient:after { bottom: -14vw; left: 30vw; background: rgba(180,83,9,.10); animation-delay: -12s; }
+@keyframes float { 0%,100%{transform: translateY(0) scale(1);} 50%{transform: translateY(24px) scale(1.04);} }
+.wrap { position: relative; z-index: 1; }
+section {
+  min-height: 100vh;
+  padding: 72px 5vw;
+  display: flex;
+  align-items: center;
+}
+.inner { width: min(1280px, 100%); margin: 0 auto; }
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 28px;
+  align-items: stretch;
+}
+.panel {
+  background: var(--paper);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,.6);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  padding: 28px;
+}
+.eyebrow {
+  display: inline-flex; gap: 10px; align-items: center;
+  padding: 8px 14px; border-radius: 999px; background: rgba(22,32,42,.06);
+  color: var(--muted); font-size: 13px; letter-spacing: .04em;
+}
+h1 {
+  font-size: clamp(42px, 7vw, 88px);
+  line-height: .95;
+  margin: 12px 0 10px;
+  letter-spacing: -.04em;
+}
+.lead { font-size: clamp(17px, 2.1vw, 24px); color: var(--muted); line-height: 1.65; max-width: 18em; }
+.summary-list { display: grid; gap: 14px; margin-top: 26px; }
+.summary-item {
+  padding: 16px 18px; border-radius: 18px; background: rgba(255,255,255,.62);
+  border: 1px solid var(--line);
+}
+.summary-item strong { display: block; margin-bottom: 6px; font-size: 16px; }
+.stats { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin-top: 22px; }
+.stat { padding: 18px; border-radius: 18px; background: var(--card); border: 1px solid var(--line); }
+.stat .num { font-size: 32px; font-weight: 800; letter-spacing: -.03em; }
+.section-head { display:flex; align-items:end; justify-content:space-between; gap:14px; margin-bottom: 16px; }
+.section-head > div { min-width: 0; flex: 1 1 420px; }
+.section-head h2 { font-size: clamp(30px, 4vw, 58px); margin: 0; letter-spacing: -.03em; }
+.section-head p { max-width: 720px; color: var(--muted); margin: 0; line-height: 1.75; flex: 1 1 320px; }
+.highlight { border-left: 6px solid var(--accent-2); background: linear-gradient(135deg, rgba(194,65,12,.08), rgba(255,255,255,.72)); }
+.observation-grid, .grid { display: grid; gap: 18px; grid-template-columns: repeat(12, 1fr); }
+.obs-card, .news-card {
+  grid-column: span 4;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 20px;
+  box-shadow: 0 12px 32px rgba(15,23,42,.06);
+}
+.obs-card h3, .news-card h3 { margin: 8px 0 6px; font-size: 22px; line-height: 1.25; }
+.tag {
+  display:inline-block; padding:6px 10px; border-radius:999px; font-size:12px; font-weight:700; letter-spacing:.03em;
+  background: rgba(15,118,110,.11); color: var(--accent);
+}
+.news-meta { color: var(--muted); font-size: 13px; line-height: 1.6; }
+.news-card p { line-height: 1.72; color: #27313a; }
+.why { margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--line); color: #12212d; }
+.why strong { color: var(--accent-2); }
+.section-panel { padding: 18px 0 0; }
+.grid .news-card.span-6 { grid-column: span 6; }
+.sources { columns: 2; column-gap: 24px; }
+.sources li { break-inside: avoid; margin-bottom: 10px; color: var(--muted); line-height: 1.65; }
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.footer-note { color: var(--muted); font-size: 14px; margin-top: 18px; }
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.inline-list { margin: 8px 0 0; padding-left: 18px; color: #27313a; line-height: 1.7; }
+@media (max-width: 1100px) {
+  .hero { grid-template-columns: 1fr; }
+  .obs-card, .news-card, .grid .news-card.span-6 { grid-column: span 6; }
+}
+@media (max-width: 720px) {
+  section { padding: 56px 18px; min-height: auto; }
+  .obs-card, .news-card, .grid .news-card.span-6 { grid-column: span 12; }
+  .stats { grid-template-columns: 1fr 1fr; }
+  .sources { columns: 1; }
+  .eyebrow { display: inline-block; max-width: 100%; line-height: 1.4; padding: 6px 12px; margin-bottom: 4px; }
+  .section-head { flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 6px; margin-bottom: 12px; }
+  .section-head > div, .section-head p { width: 100%; max-width: 100%; flex-grow: 0; flex-shrink: 0; flex-basis: auto; }
+  h1 { font-size: clamp(34px, 11vw, 54px); line-height: 1.05; margin: 8px 0 8px; }
+  .section-head h2 { font-size: clamp(28px, 8vw, 38px); line-height: 1.15; margin: 0; }
+  .obs-card h3, .news-card h3 { font-size: 20px; line-height: 1.35; margin: 6px 0 4px; }
+  .tag, .news-meta { line-height: 1.5; }
+}
+
+  </style>
+</head>
+<body>
+  <div class="ambient"></div>
+  <div class="wrap">
+    <section>
+      <div class="inner hero">
+        <div class="panel reveal">
+          <div class="eyebrow">全球热点早报 · Asia/Shanghai · 2026-07-07</div>
+          <h1>全球热点早报</h1>
+          <p class="lead">过去 24 小时，AI 线最值得看的不是“又有谁发了一个更强模型”，而是 <strong>企业风控收紧</strong>、<strong>政府安全落地</strong>、<strong>模型监管上移</strong>、<strong>儿童保护治理</strong> 与 <strong>agent 工作流反思</strong> 同时发生；非 AI 线则由 <strong>北约防务压力</strong>、<strong>俄乌新一轮空袭</strong> 与 <strong>市场等待美联储纪要</strong> 牵动。</p>
+          <div class="summary-list">
+            <div class="summary-item"><strong>最值得看 1</strong>阿里据报禁用 Anthropic，说明大模型竞争已进入企业风控和“蒸馏防御”阶段。</div>
+            <div class="summary-item"><strong>最值得看 2</strong>美国网络安全机构用 Anthropic Mythos 审计政府代码，AI 正进入高敏感治理场景。</div>
+            <div class="summary-item"><strong>最值得看 3</strong>英国监管讨论直接监管基础模型，政策焦点开始从“应用端”上移到“模型端”。</div>
+            <div class="summary-item"><strong>最值得看 4</strong>联合国要求尽快为儿童建立 AI 保护规则，全球治理压力继续抬升。</div>
+            <div class="summary-item"><strong>最值得看 5</strong>X 实时 feed 今天没有大厂官方重磅公告，但一线 builder 正集体反思 agent 工作流的“炫技化”。</div>
+          </div>
+        </div>
+        <div class="panel reveal">
+          <div class="eyebrow">今日仪表盘</div>
+          <div class="stats">
+            <div class="stat"><div class="num">22</div><div>入选条目</div></div>
+            <div class="stat"><div class="num">9</div><div>AI 条目</div></div>
+            <div class="stat"><div class="num">24h</div><div>采集窗口</div></div>
+            <div class="stat"><div class="num">07:00</div><div>计划投递时间</div></div>
+          </div>
+          <div style="margin-top:20px;padding:18px;border-radius:18px;background:rgba(15,118,110,.08);border:1px solid rgba(15,118,110,.18)">
+            <div class="tag">AI重点观察</div>
+            <h3 style="font-size:28px;margin:14px 0 10px;line-height:1.2">AI 的新现实：从“模型发布”切到“风控、审计、监管、责任”</h3>
+            <p style="line-height:1.8;color:#234">今天最有代表性的信号不是单一模型升级，而是 <strong>阿里禁用 Anthropic</strong>、<strong>美国政府用 AI 审计代码</strong>、<strong>英国讨论监管模型本身</strong>、<strong>联合国推动儿童保护规则</strong> 与 <strong>一线 builder 反思 agent 炫技化</strong> 同时出现。换句话说，AI 行业正在从“能力展示期”进入“组织、制度与责任期”。</p>
+            <p class="footer-note">生成时间：2026-07-07 07:01:32 CST（Asia/Shanghai）</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="inner">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">AI重点观察</div>
+            <h2>今天 AI 世界在同时发生什么？</h2>
+          </div>
+          <p>今天的 AI 新闻不再只是“新模型比旧模型强多少”，而是企业怎样防风险、政府怎样上生产、监管怎样往模型层上移、医疗怎样管责任，以及 builder 怎样给 agent 降噪。下面这 6 个观察，是理解今天 AI 版面的主线。</p>
+        </div>
+        <div class="observation-grid">
+          <div class="obs-card reveal highlight">
+            <div class="tag">产业风向</div>
+            <h3>企业内部开始把模型安全和知识外泄当真问题</h3>
+            <p>阿里据报禁用 Anthropic，不是单个产品偏好变化，而是企业开始把“模型蒸馏、数据边界、合规责任”纳入日常治理。</p>
+          </div>
+          <div class="obs-card reveal">
+            <div class="tag">政府落地</div>
+            <h3>AI 正从办公助手变成政府安全工具</h3>
+            <p>美国网络安全机构用 Anthropic Mythos 审计代码，说明模型已经被放进“关键系统”而不是外围试验场。</p>
+          </div>
+          <div class="obs-card reveal">
+            <div class="tag">监管上移</div>
+            <h3>监管对象可能从应用方扩展到基础模型公司</h3>
+            <p>英国 FCA 官员提到直接监管 AI 模型，意味着未来模型提供商本身也可能承担更明确的合规义务。</p>
+          </div>
+          <div class="obs-card reveal">
+            <div class="tag">社会治理</div>
+            <h3>儿童保护成为全球 AI 规则的加速器</h3>
+            <p>联合国点名“AI 跑得比监管快”，把儿童安全推成跨国政策共识更容易形成的突破口。</p>
+          </div>
+          <div class="obs-card reveal">
+            <div class="tag">医疗现实</div>
+            <h3>医疗 AI 不再只看效率，更看责任链条</h3>
+            <p>AP 对犹他州自动续方争议的报道提醒市场：一旦 AI 进入真实临床流程，容错率会陡降。</p>
+          </div>
+          <div class="obs-card reveal">
+            <div class="tag">X/Twitter</div>
+            <h3>今天的一线讨论不是“再开几个 agent”，而是“别把 agent 用成表演”</h3>
+            <p>Nan Yu、Matt Turck 等人的推文都在传递同一件事：agent 时代的价值开始回到可靠产出，而不是窗口数量。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="inner section-panel">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">栏目 1 / AI动态</div>
+            <h2>AI动态</h2>
+          </div>
+          <p>按重要性排序，今天 AI 主线集中在企业内部风控、政府级应用、模型监管、全球治理、医疗责任与中美竞争。所有条目都保留了“发生了什么 + 白话解释 + 为什么重要 + 原文摘录/链接”的正式结构。</p>
+        </div>
+        <div class="grid">
+<article class="news-card span-6 reveal">
+  <span class="tag">🛡️ 企业风控</span>
+  <h3>阿里巴巴据报禁用 Anthropic，焦点直指“蒸馏攻击”风险</h3>
+  <div class="news-meta">来源：CNBC ｜ 时间：2026-07-07 04:49 CST</div>
+  <p><strong>发生了什么：</strong>CNBC 报道称，阿里巴巴在 Anthropic 指控存在“蒸馏攻击”后，已禁止员工使用 Anthropic 的 AI 工具。 </p>
+  <p><strong>白话解说：</strong>你可以理解为：大模型竞争不只是拼效果和价格，连“会不会被别人把能力学走”都变成企业级安全议题。 </p>
+  <div class="why"><strong>为什么重要：</strong>这代表模型竞争开始进入企业内部治理层面。今后大型企业选择模型时，会更重视安全边界、供应商可信度和合规风险。 </div>
+  <p><strong>原文摘录：</strong>&quot;China&#x27;s Alibaba bans Anthropic AI for employees after distillation attack accusation.&quot;</p>
+  <p><a href="https://news.google.com/rss/articles/CBMif0FVX3lxTE53Ykl5M1J5SW5wclpRaERtUUllclU0clBCaTlPYVJ5WWVGQkpIUTRYaXJJcS1XcmVYa2lVUkZhQnpWQ0NvY3h1alBReENVT1RZa2tJMWQ3SHdMU1F2cVJuWjM0bktmZElSbGE4WVk5VWd2VnRaa2FpRm5PM2cySU3SAYQBQVVfeXFMUC13eFAwV0ZDbm02SURnMjhrd3JvUEUzeHcxdEFkNFQzbFZwUnkyMDU0MnhqYzRzaHpLZjR3MHRSQ2VycnRuaXRVd3YyNzE5UUxMN2NKQU1DamFKYV9qLVNsN0NpS1VabzVnQjluZ05odnViTUZFM2txRUpkZHhRS3hGYUhs?oc=5" target="_blank" rel="noopener">原文链接</a></p>
+</article>
+<article class="news-card span-6 reveal">
+  <span class="tag">🛡️ 政府 / 安全</span>
+  <h3>美国网络安全机构据报用 Anthropic Mythos 审计政府代码</h3>
+  <div class="news-meta">来源：Reuters ｜ 时间：2026-07-07 05:18 CST</div>
+  <p><strong>发生了什么：</strong>路透独家称，美国网络安全机构正在使用 Anthropic 的 Mythos 来审计政府代码。 </p>
+  <p><strong>白话解说：</strong>这已经不是“政府部门试试看 AI 聊天机器人”，而是把模型放进真正的安全审计流程。 </p>
+  <div class="why"><strong>为什么重要：</strong>一旦 AI 进入政府代码审计和安全治理，模型可靠性、可审计性、责任分配都会被放大检验。 </div>
+  <p><strong>原文摘录：</strong>&quot;US cyber agency is using Anthropic&#x27;s Mythos to audit government code.&quot;</p>
+  <p><a href="https://news.google.com/rss/articles/CBMiugFBVV95cUxNcVIxWEljZjRkR21jakVuQVZZblN5T1RTVENtMTNpRDU0d0ZLWWk1RkpKVkpjVUNGbkY0ckVwTmpvaXBwSnV3ZWdjNGNzU29sVnpJeUJzQUU3dkhKa2pPWW44ck5kNEpsbjZfZ1JlSTdkdFhKS05CdzhCZEZKWDAwTkpDWE01U3JZQU9TeExfYkpGQ3hHdU1nMnFJaFhyRWM3N3FBUFBPUW5LVHlQS0xMcFZJUHRqZWktNEE?oc=5" target="_blank" rel="noopener">原文链接</a></p>
+</article>
+<article class="news-card reveal">
+  <span class="tag">⚖️ 监管 / 模型层</span>
+  <h3>英国监管人士称，应考虑直接监管 AI 模型</h3>
+  <div class="news-meta">来源：Reuters ｜ 时间：2026-07-07 00:08 CST</div>
+  <p><strong>发生了什么：</strong>路透报道，英国 FCA 官员表示，英国应考虑对 AI 模型本身实施监管，而不只是管理最终应用方。 </p>
+  <p><strong>白话解说：</strong>以后可能不只是“谁在用 AI 要守规矩”，连“谁在造模型”都可能被直接盯上。 </p>
+  <div class="why"><strong>为什么重要：</strong>这会把监管压力从应用层上移到基础模型层，直接改变模型公司未来的合规成本和产品节奏。 </div>
+  <p><strong>原文摘录：</strong>&quot;Britain should consider regulating AI models.&quot;</p>
+  <p><a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxOdVFXcEM5RE90LWlqOW9QNXpNYlBSRjJ0Y2dLS3BtN3dzR2IxRzFCUXlGNXVDRTg3TVlMTUN4Vm5PVTRQMkl6b2R2bGRGeGJ2Q3hzRkk0VTBWQ3RRLTZZajc1dWRGR05kVzVvTlg1THBOb3NfUVR4T0xwYnVWVGt1cHBRZld4Wll2aEZ1WmR4OXFkcGFkVTJscjRWbWJZcl9kQnpPdjhqZXNqN0V2RGktQjVKX21lZw?oc=5" target="_blank" rel="noopener">原文链接</a></p>
+</article>
+<article class="news-card reveal">
+  <span class="tag">🧒 安全 / 治理</span>
+  <h3>联合国警告 AI 已跑在监管前面，要求建立儿童保护规则</h3>
+  <div class="news-meta">来源：Reuters ｜ 时间：2026-07-06 19:17 CST</div>
+  <p><strong>发生了什么：</strong>联合国秘书长古特雷斯警告 AI 发展快于监管，并呼吁建立全球规则以保护儿童。 </p>
+  <p><strong>白话解说：</strong>最容易形成国际共识的，往往不是“怎么鼓励创新”，而是“先别伤到孩子”。 </p>
+  <div class="why"><strong>为什么重要：</strong>儿童保护可能成为各国推动 AI 内容治理、身份验证和风险分级制度的加速器。 </div>
+  <p><strong>原文摘录：</strong>&quot;AI outpacing oversight, urges global rules to protect children.&quot;</p>
+  <p><a href="https://news.google.com/rss/articles/CBMirAFBVV95cUxPcjZKby1qbWJLdDhkOG0zdUhZSzZoR3Q3a2tpU3J1RTJVMXZudXJWenpVTjU5UWZVcDZLX0RlYjFTZnY5M2RMNWlWRXQ1TkJqQnV5d2tlMHlpVkYzRmdtbUF6X05ObDdfYnR2Y1ptNEthZ1AyQzlCMmI1a1NoUlBPcnJ3elUzNkViWXItX0ZFWTZKTGY1ZWlpbkxKeE5uellvMEVSOEJwS0tHOG5i?oc=5" target="_blank" rel="noopener">原文链接</a></p>
+</article>
+<article class="news-card reveal">
+  <span class="tag">🏥 医疗 / 应用</span>
+  <h3>AI 自动续方走到真实临床流程，医生开始明确踩刹车</h3>
+  <div class="news-meta">来源：AP News ｜ 时间：2026-07-06 23:58 CST</div>
+  <p><strong>发生了什么：</strong>AP 报道，犹他州自动化续方项目让“AI 是否已准备好接管部分处方流程”成为公开争议。医生群体对该项目保持警惕。 </p>
+  <p><strong>白话解说：</strong>让 AI 帮医生整理文书，和让 AI 真正介入开药流程，是完全不同的风险等级。 </p>
+  <div class="why"><strong>为什么重要：</strong>医疗 AI 的下一阶段不只拼效率，而是拼责任链条、临床安全和监管兜底。 </div>
+  <p><strong>原文摘录：</strong>&quot;Doctors are wary of Utah&#x27;s automated refill program.&quot;</p>
+  <p><a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxPdU1jQmdjZ3pfd3V0VlNYekNUWkZWQ19tTG4wWWJpbjJUQWVURTRZMjRDMzRES0ZzSzVfc1hZZG1RODgzZVpUbl92N0YwUklnTm9CZFhKLUVzMkRQZkhaSXc1ZVJFc0toaUM4NVZVa2ZDVUR1SGZSU1pGVzR1dEFCUG9mZGJPVms0anM5VU91Qm0xYzZOc0pHMXBkU1E5U0FuM3RKemJWb0VkZjVDcW85Ykhn?oc=5" target="_blank" rel="noopener">原文链接</a></p>
+</article>
+<article class="news-card reveal">
+  <span class="tag">🌏 竞争 / 产业</span>
+  <h3>纽约时报：美国 AI 公司警惕中国“复制者”追赶加速</h3>
+  <div class="news-meta">来源：The New York Times ｜ 时间：2026-07-07 00:04 CST</div>
+  <p><strong>发生了什么：</strong>纽约时报报道称，美国 AI 公司认为，中国的“复制型竞争者”正在迅速缩小差距。 </p>
+  <p><strong>白话解说：</strong>领先者开始意识到：自己领先的时间窗口也许没想象中那么长。 </p>
+  <div class="why"><strong>为什么重要：</strong>这说明全球 AI 竞争正在从单点技术领先转向工程效率、蒸馏、开源与商业落地的全面赛跑。 </div>
+  <p><strong>原文摘录：</strong>&quot;Chinese Copycats Are Quickly Catching Up.&quot;</p>
+  <p><a href="https://news.google.com/rss/articles/CBMifEFVX3lxTFBvWWhjV01HTEdydTBZQ0JXNEN1WlptQlE2OFNkekl6WmNGVWdiWGxITmRvdXNCdXpVSDdGYlZIaW0wSklwTjNJaWFMbHFnYnpMM3hjUjItcGM1cFhmSnJBM2hxNk5TOHlHTmZqS1FZTHE2UUg2SXR0N3hFZXM?oc=5" target="_blank" rel="noopener">原文链接</a></p>
+</article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="inner section-panel">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">X/Twitter AI 动态</div>
+            <h2>X/Twitter AI 动态</h2>
+          </div>
+          <p>这部分严格基于 follow-builders 的实时 JSON：本次 live feed 生成时间 2026-07-06T07:52:35Z，覆盖 14 个 builder。今天 X 上的有效 AI 信号主要来自 builder / 投资人，而不是官方公告号，所以专栏明确拆成 A. 官方账号动态 与 B. Builder / 创始人 / 投资人观点。</p>
+        </div>
+        <div class="grid">
+          <article class="news-card span-6 reveal highlight">
+            <span class="tag">A. 官方账号动态</span>
+            <h3>官方账号动态：当前 live feed 没有抓到可入选的重磅 AI 更新</h3>
+            <div class="news-meta">来源：follow-builders 实时 X feed ｜ 时间：截至 2026-07-07 07:02 CST</div>
+            <p><strong>发生了什么：</strong>本次 live feed 共抓到 14 个账号，但过去约 24 小时内，没有出现适合写进早报的 OpenAI、AnthropicAI、Google DeepMind、Google AI、xAI、Meta AI、NVIDIA 等官方账号 AI 动态。</p>
+            <p><strong>白话解说：</strong>这不是“X 没数据”，而是“今天的一线信号主要来自 builder，而不是官方公告号”。</p>
+            <div class="why"><strong>为什么重要：</strong>把覆盖边界写清楚，比误报“今天官方都没动静”更重要；这能避免把 feed 覆盖不足误当成事实空白。</div>
+            <p><strong>原文摘录：</strong>当前 live feed 未覆盖 @OpenAI、@AnthropicAI、@GoogleDeepMind、@GoogleAI、@xAI、@MetaAI、@Microsoft、@nvidia 的可入选 AI 更新。</p>
+          </article>
+          <article class="news-card span-6 reveal">
+            <span class="tag">B. Builder / 创始人 / 投资人观点</span>
+            <h3>Builder / 创始人 / 投资人观点：今天重点不是“更多 agent”，而是“更少表演、更多结果”</h3>
+            <div class="news-meta">来源：follow-builders 实时 X feed ｜ 时间：2026-07-07 汇总</div>
+            <p><strong>发生了什么：</strong>今天 live feed 里最有信号密度的讨论，集中在 Claude Code 工作流、agent 微操死路，以及 AI agent 可靠性预期管理。</p>
+            <p><strong>白话解说：</strong>一线 builder 的共识越来越像：别把 agent 当秀场，重点是让它稳定干活。</p>
+            <div class="why"><strong>为什么重要：</strong>这说明 agent 赛道的讨论，正在从“能不能做出来”转到“能不能用、能不能规模化”。</div>
+            <p><strong>原文摘录：</strong>今天 X 上的有效 AI 信号主要来自 builder / 投资人，而不是官方公告号。</p>
+          </article>
+<article class="news-card reveal">
+  <span class="tag">B. Builder / 产品视角</span>
+  <h3>Nan Yu：别再把“同时开 10 个 Claude Code 标签页”当成效率神话</h3>
+  <div class="news-meta">来源：X @thenanyu ｜ 时间：2026-07-06 08:04 CST</div>
+  <p><strong>发生了什么：</strong>Linear 产品负责人 Nan Yu 发文称，炫耀同时开 10 个 Claude Code 标签页更像表演，而非真正有效的 AI 工作流。 </p>
+  <p><strong>白话解说：</strong>意思很直白：AI 开得越多不一定越强，关键是能不能真的把事情做完。 </p>
+  <div class="why"><strong>为什么重要：</strong>这说明一线产品人正在从“堆 agent 数量”转向“看真实产出和编排效率”，是 agent 工具成熟的重要信号。 </div>
+  <p><strong>原文摘录：</strong>&quot;Bragging about running 10 Claude code tabs is just theater.&quot;</p>
+  <p><a href="https://x.com/thenanyu/status/2073920959011074292" target="_blank" rel="noopener">原帖链接</a></p>
+</article>
+<article class="news-card reveal">
+  <span class="tag">B. Builder / 工作流</span>
+  <h3>Nan Yu：把 agent 管理做成 RTS 微操，是一条死路</h3>
+  <div class="news-meta">来源：X @thenanyu ｜ 时间：2026-07-06 08:01 CST</div>
+  <p><strong>发生了什么：</strong>Nan Yu 进一步表示，把 agent 管理做成像即时战略游戏那样的人类持续微操模式，明显走不通。 </p>
+  <p><strong>白话解说：</strong>你可以理解为：用户想要的是“交代任务、自动完成”，不是像打游戏一样盯着几十个小兵点来点去。 </p>
+  <div class="why"><strong>为什么重要：</strong>这类判断反映了 agent 产品设计正在从炫技界面回归到高层控制、自动执行和结果交付。 </div>
+  <p><strong>原文摘录：</strong>&quot;The real-time strategy game model of managing agents is clearly a dead end.&quot;</p>
+  <p><a href="https://x.com/thenanyu/status/2073920326304460847" target="_blank" rel="noopener">原帖链接</a></p>
+</article>
+<article class="news-card reveal">
+  <span class="tag">B. Builder / 投资人观点</span>
+  <h3>Matt Turck：市场喜欢 AI agent，但别假装它已经能“零失误”</h3>
+  <div class="news-meta">来源：X @mattturck ｜ 时间：2026-07-06 11:30 CST</div>
+  <p><strong>发生了什么：</strong>投资人 Matt Turck 用梗图调侃：当人们要求 AI agent “不要犯任何错误”时，现实往往没那么美好。 </p>
+  <p><strong>白话解说：</strong>这句话其实是在提醒大家：agent 很有前景，但今天还远没到“完全放心托管”的阶段。 </p>
+  <div class="why"><strong>为什么重要：</strong>可靠性预期开始被公开讨论，说明市场已经从“能不能做”转向“能不能稳定做”。 </div>
+  <p><strong>原文摘录：</strong>&quot;when I ask my AI agent to make no mistakes&quot;</p>
+  <p><a href="https://x.com/mattturck/status/2073972907491865062" target="_blank" rel="noopener">原帖链接</a></p>
+</article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="inner section-panel">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">栏目 2 / 科技</div>
+            <h2>科技</h2>
+          </div>
+          <p>今天非 AI 科技线索，集中在平台内容审核、下一代消费硬件争夺，以及大型科技公司的组织重整。</p>
+        </div>
+        <div class="grid">
+<article class="news-card span-6 reveal">
+  <span class="tag">🧵 平台治理</span>
+  <h3>印度要求 Meta 下架推广儿童性虐待内容的付费广告</h3>
+  <div class="news-meta">来源：BBC ｜ 时间：2026-07-06 13:52 UTC</div>
+  <p><strong>发生了什么：</strong>BBC 报道，印度要求 Meta 删除 Instagram 上推广儿童性虐待内容的付费广告。 </p>
+  <p><strong>白话解说：</strong>这不是普通平台舆论风波，而是监管部门直接盯上广告审核和平台责任。 </p>
+  <div class="why"><strong>为什么重要：</strong>印度是 Meta 的超大市场；一旦监管持续加码，平台的审核成本和合规风险都会上升。 </div>
+  <p><strong>原文摘录：</strong>&quot;The order comes days after the BBC published an investigation about the platform showing such ads to users.&quot;</p>
+  <p><a href="https://www.bbc.com/news/articles/cql11969g2qo" target="_blank" rel="noopener">原文链接</a></p>
+</article>
+<article class="news-card reveal">
+  <span class="tag">🕶️ 智能硬件</span>
+  <h3>苹果前高管参与的中国智能眼镜公司晋升独角兽，腾讯和美团参投</h3>
+  <div class="news-meta">来源：CNBC ｜ 时间：2026-07-06 18:00 CST</div>
+  <p><strong>发生了什么：</strong>CNBC 报道，一家由苹果前高管参与的中国智能眼镜公司完成融资并跻身独角兽，腾讯和美团参投。 </p>
+  <p><strong>白话解说：</strong>市场还在继续下注“下一代个人设备”，并不满足于只围绕手机竞争。 </p>
+  <div class="why"><strong>为什么重要：</strong>智能眼镜正被视为可能承接 AI 与消费硬件结合的新入口，这条赛道的资本热度还在升温。 </div>
+  <p><strong>原文摘录：</strong>&quot;The Shenzhen-based startup joined a slew of global peers to build advanced gadgets and electronics...&quot;</p>
+  <p><a href="https://www.cnbc.com/2026/07/06/apple-veteran-takes-on-meta-with-1-billion-smart-glasses-maker.html" target="_blank" rel="noopener">原文链接</a></p>
+</article>
+<article class="news-card reveal">
+  <span class="tag">🎮 组织重整</span>
+  <h3>微软裁员 4,800 人，Xbox 也在收缩</h3>
+  <div class="news-meta">来源：AP ｜ 时间：2026-07-06 22:49 CST</div>
+  <p><strong>发生了什么：</strong>AP 报道，微软宣布裁员 4,800 人，约占全球员工 2.1%，Xbox 业务也受影响。 </p>
+  <p><strong>白话解说：</strong>头部科技公司也在继续重排预算，说明“增长故事”和“成本纪律”现在是同时存在的。 </p>
+  <div class="why"><strong>为什么重要：</strong>大型科技公司的裁员和重组，会影响游戏、硬件、云与 AI 投资节奏，是行业资源再分配的直接信号。 </div>
+  <p><strong>原文摘录：</strong>&quot;Microsoft has announced it is cutting 4,800 jobs... This represents about 2.1% of its global workforce.&quot;</p>
+  <p><a href="https://apnews.com/article/xbox-layoffs-microsoft-sharma-5a8f712c531911089dee008b3bbb33c4" target="_blank" rel="noopener">原文链接</a></p>
+</article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="inner section-panel">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">栏目 3 / 金融 / 资本市场</div>
+            <h2>金融 / 资本市场</h2>
+          </div>
+          <p>金融市场今天更像“先等等再决定方向”：利率在等美联储纪要，金融科技想往银行牌照里走，白宫则继续强化“股市即政绩”的政治叙事。</p>
+        </div>
+        <div class="grid">
+<article class="news-card span-6 reveal">
+  <span class="tag">🏦 利率 / 宏观</span>
+  <h3>美债收益率横盘，市场在等美联储会议纪要</h3>
+  <div class="news-meta">来源：CNBC ｜ 时间：2026-07-06 16:48 CST</div>
+  <p><strong>发生了什么：</strong>CNBC 报道，美国国债收益率周初变动不大，投资者在等 FOMC 会议纪要和更多经济数据。 </p>
+  <p><strong>白话解说：</strong>市场现在像是在“暂停下注”，等美联储给更多方向感。 </p>
+  <div class="why"><strong>为什么重要：</strong>美债收益率是全球资产定价锚，利率预期稍有变化，就会直接影响股市、汇率和风险偏好。 </div>
+  <p><strong>原文摘录：</strong>&quot;U.S. Treasury yields were relatively unchanged to start the week as investors looked ahead...&quot;</p>
+  <p><a href="https://www.cnbc.com/2026/07/06/us-treasury-yields-investors-look-ahead-to-fomc-meeting-minutesu.html" target="_blank" rel="noopener">原文链接</a></p>
+</article>
+<article class="news-card reveal">
+  <span class="tag">💳 金融科技</span>
+  <h3>Klarna 申请美国银行牌照，想从分期平台走向完整金融机构</h3>
+  <div class="news-meta">来源：CNBC ｜ 时间：2026-07-06 22:49 CST</div>
+  <p><strong>发生了什么：</strong>Klarna 正寻求美国银行牌照，希望把业务从“先买后付”进一步扩展到更传统的金融服务。 </p>
+  <p><strong>白话解说：</strong>它不想只做付款插件，而是想进入银行主场。 </p>
+  <div class="why"><strong>为什么重要：</strong>这说明金融科技公司正更深地切入传统银行体系，未来监管与竞争格局都可能重排。 </div>
+  <p><strong>原文摘录：</strong>&quot;Klarna joins a wave of fintech and crypto firms seeking entry to the traditional banking system.&quot;</p>
+  <p><a href="https://www.cnbc.com/2026/07/06/klarna-seeks-us-bank-charter-in-push-beyond-buy-now-pay-later.html" target="_blank" rel="noopener">原文链接</a></p>
+</article>
+<article class="news-card reveal">
+  <span class="tag">📈 市场叙事</span>
+  <h3>特朗普再次把股市表现当政治成绩单</h3>
+  <div class="news-meta">来源：AP ｜ 时间：2026-07-06 19:12 CST</div>
+  <p><strong>发生了什么：</strong>AP 报道，特朗普从白宫为纽交所和纳斯达克敲响开市钟，并主动把自身政治叙事与股市表现绑定。 </p>
+  <p><strong>白话解说：</strong>白宫在告诉投资者和选民：股市涨跌，本届政府要把它算进政绩。 </p>
+  <div class="why"><strong>为什么重要：</strong>当政治人物主动强化“我=市场”的叙事，政策沟通和市场波动往往会更紧密联动。 </div>
+  <p><strong>原文摘录：</strong>&quot;It’s a symbolic act that reflects how Trump has increasingly tied his presidency to the stock market.&quot;</p>
+  <p><a href="https://apnews.com/article/trump-wall-street-opening-bells-stock-market-e55efa6c06e6eef8feb9049a7800c136" target="_blank" rel="noopener">原文链接</a></p>
+</article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="inner section-panel">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">栏目 4 / 国际时事</div>
+            <h2>国际时事</h2>
+          </div>
+          <p>国际部分最值得看的，是俄乌空袭再升级、加沙治理架构出现新说法，以及伊朗通过大规模送葬展示权力连续性。</p>
+        </div>
+        <div class="grid">
+<article class="news-card span-6 reveal">
+  <span class="tag">⚔️ 俄乌</span>
+  <h3>俄罗斯新一轮空袭至少造成乌克兰 22 人死亡</h3>
+  <div class="news-meta">来源：AP ｜ 时间：2026-07-06 10:02 CST</div>
+  <p><strong>发生了什么：</strong>俄罗斯对乌克兰发动大规模导弹和无人机袭击，至少造成 22 人死亡。 </p>
+  <p><strong>白话解说：</strong>战场压力没有降下来，乌克兰最缺的还是能真正拦截导弹的防空能力。 </p>
+  <div class="why"><strong>为什么重要：</strong>这会继续影响北约峰会议程、军援节奏与欧洲安全预期。 </div>
+  <p><strong>原文摘录：</strong>&quot;The assault highlights gaps in Ukraine&#x27;s air defenses, particularly the need for more U.S.-made Patriot interceptor missiles.&quot;</p>
+  <p><a href="https://apnews.com/article/russia-ukraine-war-july-6-2026-0280e3d86022720fd5fa0236122ad90e" target="_blank" rel="noopener">原文链接</a></p>
+</article>
+<article class="news-card span-6 reveal">
+  <span class="tag">🌍 中东</span>
+  <h3>哈马斯称已解散加沙政府，准备向联合国支持的技术委员会移交权力</h3>
+  <div class="news-meta">来源：AP ｜ 时间：2026-07-06 21:41 CST</div>
+  <p><strong>发生了什么：</strong>哈马斯表示已解散其在加沙的政府，并准备把行政权力移交给联合国支持的技术委员会。 </p>
+  <p><strong>白话解说：</strong>这像是在释放“愿意交出行政管理”的信号，但真正关键仍是武装和安全权怎么处理。 </p>
+  <div class="why"><strong>为什么重要：</strong>这关系到停火谈判、战后治理和加沙重建架构是否能向前推进。 </div>
+  <p><strong>原文摘录：</strong>&quot;Hamas says it has dissolved its government in Gaza and is preparing to transfer power...&quot;</p>
+  <p><a href="https://apnews.com/article/israel-gaza-palestinians-hamas-war-government-146f9a609580d4c8c42ab35fbe60d5b3" target="_blank" rel="noopener">原文链接</a></p>
+</article>
+<article class="news-card reveal">
+  <span class="tag">🇮🇷 伊朗</span>
+  <h3>伊朗为哈梅内伊举行大规模送葬，权力连续性成为焦点</h3>
+  <div class="news-meta">来源：AP ｜ 时间：2026-07-06 10:57 CST</div>
+  <p><strong>发生了什么：</strong>德黑兰为已故最高领袖哈梅内伊举行大规模送葬活动，国家媒体集中展示人群规模。 </p>
+  <p><strong>白话解说：</strong>葬礼越隆重，越是在对内对外强调：政权秩序还在、权力没有真空。 </p>
+  <div class="why"><strong>为什么重要：</strong>伊朗的权力过渡会影响地区安全、能源市场和未来对外姿态。 </div>
+  <p><strong>原文摘录：</strong>&quot;Helicopter images aired on Iranian state television showed a massive crowd...&quot;</p>
+  <p><a href="https://apnews.com/article/khamenei-funeral-supreme-leader-iran-us-war-july-6-2026-88b7f2e4902c18e2c1aa0eb91ad7bcfb" target="_blank" rel="noopener">原文链接</a></p>
+</article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="inner section-panel">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">栏目 5 / 政治 / 政策</div>
+            <h2>政治 / 政策</h2>
+          </div>
+          <p>政治与政策线索集中在北约预算压力、特朗普对盟友的再施压，以及未成年人数字监管向应用商店继续前推。</p>
+        </div>
+        <div class="grid">
+<article class="news-card span-6 reveal">
+  <span class="tag">🛡️ 北约</span>
+  <h3>吕特要求成员国在北约峰会上拿出防务开支兑现方案</h3>
+  <div class="news-meta">来源：AP ｜ 时间：2026-07-06 21:59 CST</div>
+  <p><strong>发生了什么：</strong>北约秘书长吕特要求成员国提出实现防务开支目标的明确计划。 </p>
+  <p><strong>白话解说：</strong>北约现在不是喊口号，而是在催各国交“具体作业”。 </p>
+  <div class="why"><strong>为什么重要：</strong>这会直接影响欧洲财政压力、美欧分工和对乌支持的持续性。 </div>
+  <p><strong>原文摘录：</strong>&quot;Rutte has demanded that member states present clear plans to meet defense spending targets...&quot;</p>
+  <p><a href="https://apnews.com/article/nato-summit-spending-rutte-afeb65422318e1dd91c5a433f9d35980" target="_blank" rel="noopener">原文链接</a></p>
+</article>
+<article class="news-card reveal">
+  <span class="tag">🇺🇸 外交 / 安全</span>
+  <h3>特朗普赴北约峰会，将继续要求盟友拿出更多防务承诺</h3>
+  <div class="news-meta">来源：AP ｜ 时间：2026-07-06 12:09 CST</div>
+  <p><strong>发生了什么：</strong>特朗普赴土耳其参加北约峰会，准备继续向盟友施压，要求兑现并扩大防务承诺。 </p>
+  <p><strong>白话解说：</strong>美国正在把“盟友多出钱”从长期抱怨，升级成峰会核心议程。 </p>
+  <div class="why"><strong>为什么重要：</strong>这会影响北约未来分工、美欧关系以及乌克兰支持力度。 </div>
+  <p><strong>原文摘录：</strong>&quot;This year, his mission is to try to enforce those pledges.&quot;</p>
+  <p><a href="https://apnews.com/article/trump-nato-summit-iran-turkey-erdogan-8d994efb518c6a8538cbe3c6ac539147" target="_blank" rel="noopener">原文链接</a></p>
+</article>
+<article class="news-card reveal">
+  <span class="tag">📱 平台监管</span>
+  <h3>美国最高法院不阻止得州 App 下载年龄验证法执行</h3>
+  <div class="news-meta">来源：AP ｜ 时间：2026-07-07 03:47 CST</div>
+  <p><strong>发生了什么：</strong>美国最高法院拒绝阻止得州执行应用下载年龄验证法，要求未成年人下载 App 或内购时进行年龄验证并取得家长同意。 </p>
+  <p><strong>白话解说：</strong>以后美国更多地方可能要求“先验年龄、再下 App”，平台和应用商店的压力会更大。 </p>
+  <div class="why"><strong>为什么重要：</strong>这是未成年人保护、数字隐私和平台责任的重要先例，可能鼓励其他州跟进。 </div>
+  <p><strong>原文摘录：</strong>&quot;The U.S. Supreme Court has declined to block Texas from enforcing a state law that requires age verification...&quot;</p>
+  <p><a href="https://apnews.com/article/texas-age-mobile-app-verification-law-supreme-court-362137cccb26fc5f5dfbb71fb2b2f3db" target="_blank" rel="noopener">原文链接</a></p>
+</article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="inner section-panel">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">市场晨间观察</div>
+            <h2>市场晨间观察</h2>
+          </div>
+          <p>港股今天更适合先看收盘锚点，美股隔夜风险偏好回暖，加密资产同步反弹。这里保留“点位 + 解释 + 为什么重要 + 行情链接”的正式结构，便于手机端快速扫读。</p>
+        </div>
+        <div class="grid">
+<article class="news-card span-6 reveal">
+  <span class="tag">🇭🇰 港股</span>
+  <h3>港股今晨先看收盘锚点：恒指 23,616，恒生科技 4,541</h3>
+  <div class="news-meta">来源：CNBC Quotes ｜ 抓取时间：2026-07-07 07:02 CST</div>
+  <p><strong>发生了什么：</strong>CNBC 页面显示，恒生指数报 23,616.32，恒生科技指数报 4,541.23；当前更适合作为 7 月 6 日收盘参考。 </p>
+  <p><strong>白话解说：</strong>港股今天早上先别急着下结论，重点看开盘后是否跟上隔夜美股科技情绪。 </p>
+  <div class="why"><strong>为什么重要：</strong>港股科技能否承接隔夜纳指强势，要看人民币汇率、南向资金和平台经济链条是否同步配合。 </div>
+  <p><strong>原文摘录：</strong>HSI 23,616.32 ｜ HSTECH 4,541.23（CNBC 闭市静态值）</p>
+  <p><a href="https://www.cnbc.com/quotes/.HSI" target="_blank" rel="noopener">行情链接</a></p>
+</article>
+<article class="news-card span-6 reveal">
+  <span class="tag">🇺🇸 美股</span>
+  <h3>隔夜美股普涨，纳指领跑</h3>
+  <div class="news-meta">来源：CNBC Quotes ｜ 抓取时间：2026-07-07 07:02 CST</div>
+  <p><strong>发生了什么：</strong>标普 500 报 7,537.43，涨 0.72%；纳指报 26,121.16，涨 1.12%；道指报 53,055.91，涨 0.29%。 </p>
+  <p><strong>白话解说：</strong>市场在告诉你：昨晚愿意先追成长，再看宏观。 </p>
+  <div class="why"><strong>为什么重要：</strong>纳指强于标普、标普强于道指，说明科技和风险偏好依旧是短线主导力量。 </div>
+  <p><strong>原文摘录：</strong>S&amp;P 500 +0.72% ｜ NASDAQ +1.12% ｜ DJIA +0.29%。</p>
+  <p><a href="https://www.cnbc.com/quotes/.IXIC" target="_blank" rel="noopener">行情链接</a></p>
+</article>
+<article class="news-card span-6 reveal">
+  <span class="tag">₿ 加密</span>
+  <h3>加密资产同步反弹，比特币强于以太坊</h3>
+  <div class="news-meta">来源：CNBC Quotes ｜ 抓取时间：2026-07-07 07:02 CST</div>
+  <p><strong>发生了什么：</strong>比特币报 64,261.18 美元，涨 2.43%；以太坊报 1,807.70 美元，涨 1.57%。 </p>
+  <p><strong>白话解说：</strong>这更像风险偏好修复信号，而不是已经确认单边牛市。 </p>
+  <div class="why"><strong>为什么重要：</strong>当 BTC、ETH 与纳指同向走强时，通常说明市场短线愿意承担更高波动资产。 </div>
+  <p><strong>原文摘录：</strong>BTC +2.43% ｜ ETH +1.57%。</p>
+  <p><a href="https://www.cnbc.com/quotes/BTC.CM=" target="_blank" rel="noopener">行情链接</a></p>
+</article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="inner">
+        <div class="panel reveal">
+          <div class="section-head" style="margin-bottom: 10px;">
+            <div>
+              <div class="eyebrow">信息来源</div>
+              <h2 style="font-size: clamp(28px,4vw,52px)">Sources</h2>
+            </div>
+            <p>优先使用权威媒体、官方源与实时结构化 feed；若某些来源在当前环境抓取受限，会明确标注替代来源和覆盖边界，不把“链接能打开”误当成“今天这版已更新”。</p>
+          </div>
+          <ul class="sources">
+            <li>follow-builders 实时 X feed / prepare-digest.js —— 本次 live feed 生成时间 2026-07-06T07:52:35Z；共 14 个 X builders、1 条 podcast 记录，今天主要使用 X 动态。</li>
+            <li>Reuters —— 美国网络安全机构使用 Anthropic Mythos、英国考虑监管 AI 模型、联合国呼吁儿童 AI 保护规则等。</li>
+            <li>CNBC —— 阿里禁用 Anthropic、智能眼镜融资、美债收益率、Klarna 牌照与市场行情页面。</li>
+            <li>AP —— 微软裁员、俄乌空袭、加沙治理变化、伊朗送葬、北约与得州年龄验证法等。</li>
+            <li>BBC —— 印度要求 Meta 下架违规广告。</li>
+            <li>The New York Times —— 中国 AI 追赶速度加快。</li>
+            <li>说明：当前环境的 managed web search 授权受限，部分 AI 条目使用 Google News RSS 落地链接承载原始媒体标题与时间窗口；正文摘要仍严格基于对应媒体报道，不做臆造。</li>
+            <li>说明：X/Twitter 专栏严格只使用 live feed 中真实出现的推文；今天未把缺席的官方账号误报为“没有动态”，而是明确标注为“当前 feed 未覆盖”。</li>
+          </ul>
+          <p class="footer-note">正式公开链接：https://global-briefing-29c.pages.dev/ ｜ 本页已按 2026-04-15 正式改版版式结构生成。</p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
