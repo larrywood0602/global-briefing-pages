@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>全球热点早报 | 2026-07-31</title>
+  <style>
+    :root {
+      --bg: #f5f1e8;
+      --paper: rgba(255,255,255,0.72);
+      --card: rgba(255,255,255,0.82);
+      --ink: #16202a;
+      --muted: #5f6b76;
+      --line: rgba(22,32,42,.12);
+      --accent: #0f766e;
+      --accent-2: #c2410c;
+      --gold: #b45309;
+      --blue: #1d4ed8;
+      --red: #b91c1c;
+      --shadow: 0 24px 80px rgba(16,24,40,.12);
+      --radius: 24px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    h1, h2, h3, .eyebrow, .tag, .news-meta, .stat, .summary-item, .why {
+      writing-mode: horizontal-tb;
+      text-orientation: mixed;
+      word-break: normal;
+      overflow-wrap: break-word;
+      white-space: normal;
+    }
+    body {
+      margin: 0;
+      font-family: -apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,"PingFang SC","Hiragino Sans GB","Noto Sans CJK SC","Microsoft YaHei",sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 20%, rgba(29,78,216,.08), transparent 28%),
+        radial-gradient(circle at 85% 18%, rgba(180,83,9,.10), transparent 26%),
+        radial-gradient(circle at 50% 80%, rgba(15,118,110,.10), transparent 30%),
+        linear-gradient(180deg, #f9f6ef 0%, #efe8da 100%);
+      overflow-x: hidden;
+    }
+    .ambient, .ambient:before, .ambient:after {
+      position: fixed; inset: auto; pointer-events: none; z-index: 0; content: "";
+      width: 42vw; height: 42vw; border-radius: 50%; filter: blur(80px); opacity: .35;
+      animation: float 18s ease-in-out infinite;
+    }
+    .ambient { top: -10vw; left: -8vw; background: rgba(29,78,216,.10); }
+    .ambient:before { top: 16vh; right: -16vw; background: rgba(15,118,110,.10); animation-delay: -6s; }
+    .ambient:after { bottom: -14vw; left: 30vw; background: rgba(180,83,9,.10); animation-delay: -12s; }
+    @keyframes float { 0%,100%{transform: translateY(0) scale(1);} 50%{transform: translateY(24px) scale(1.04);} }
+    .wrap { position: relative; z-index: 1; }
+    section { min-height: 100vh; padding: 72px 5vw; display: flex; align-items: center; }
+    .inner { width: min(1280px, 100%); margin: 0 auto; }
+    .hero { display: grid; grid-template-columns: 1.1fr .9fr; gap: 28px; align-items: stretch; }
+    .panel { background: var(--paper); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,.6); border-radius: 28px; box-shadow: var(--shadow); padding: 28px; }
+    .eyebrow { display: inline-flex; gap: 10px; align-items: center; padding: 8px 14px; border-radius: 999px; background: rgba(22,32,42,.06); color: var(--muted); font-size: 13px; letter-spacing: .04em; }
+    h1 { font-size: clamp(42px, 7vw, 88px); line-height: .95; margin: 12px 0 10px; letter-spacing: -.04em; }
+    .lead { font-size: clamp(17px, 2.1vw, 24px); color: var(--muted); line-height: 1.65; max-width: 18em; }
+    .summary-list { display: grid; gap: 14px; margin-top: 26px; }
+    .summary-item { padding: 16px 18px; border-radius: 18px; background: rgba(255,255,255,.62); border: 1px solid var(--line); }
+    .summary-item strong { display: block; margin-bottom: 6px; font-size: 16px; }
+    .stats { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin-top: 22px; }
+    .stat { padding: 18px; border-radius: 18px; background: var(--card); border: 1px solid var(--line); }
+    .stat .num { font-size: 32px; font-weight: 800; letter-spacing: -.03em; }
+    .section-head { display:flex; align-items:end; justify-content:space-between; gap:14px; margin-bottom: 16px; }
+    .section-head > div { min-width: 0; flex: 1 1 420px; }
+    .section-head h2 { font-size: clamp(30px, 4vw, 58px); margin: 0; letter-spacing: -.03em; }
+    .section-head p { max-width: 720px; color: var(--muted); margin: 0; line-height: 1.75; flex: 1 1 320px; }
+    .highlight { border-left: 6px solid var(--accent-2); background: linear-gradient(135deg, rgba(194,65,12,.08), rgba(255,255,255,.72)); }
+    .observation-grid, .grid { display: grid; gap: 18px; grid-template-columns: repeat(12, 1fr); }
+    .obs-card, .news-card { grid-column: span 4; background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 20px; box-shadow: 0 12px 32px rgba(15,23,42,.06); }
+    .obs-card h3, .news-card h3 { margin: 8px 0 6px; font-size: 22px; line-height: 1.25; }
+    .tag { display:inline-block; padding:6px 10px; border-radius:999px; font-size:12px; font-weight:700; letter-spacing:.03em; background: rgba(15,118,110,.11); color: var(--accent); }
+    .news-meta { color: var(--muted); font-size: 13px; line-height: 1.6; }
+    .news-card p { line-height: 1.72; color: #27313a; }
+    .why { margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--line); color: #12212d; }
+    .why strong { color: var(--accent-2); }
+    .section-panel { padding: 18px 0 0; }
+    .grid .news-card.span-6 { grid-column: span 6; }
+    .sources { columns: 2; column-gap: 24px; }
+    .sources li { break-inside: avoid; margin-bottom: 10px; color: var(--muted); line-height: 1.65; }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .footer-note { color: var(--muted); font-size: 14px; margin-top: 18px; }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (max-width: 1100px) { .hero { grid-template-columns: 1fr; } .obs-card, .news-card, .grid .news-card.span-6 { grid-column: span 6; } }
+    @media (max-width: 720px) {
+      section { padding: 56px 18px; min-height: auto; }
+      .obs-card, .news-card, .grid .news-card.span-6 { grid-column: span 12; }
+      .stats { grid-template-columns: 1fr 1fr; }
+      .sources { columns: 1; }
+      .eyebrow { display: inline-block; max-width: 100%; line-height: 1.4; padding: 6px 12px; margin-bottom: 4px; }
+      .section-head { flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 6px; margin-bottom: 12px; }
+      .section-head > div, .section-head p { width: 100%; max-width: 100%; flex-grow: 0; flex-shrink: 0; flex-basis: auto; }
+      h1 { font-size: clamp(34px, 11vw, 54px); line-height: 1.05; margin: 8px 0 8px; }
+      .section-head h2 { font-size: clamp(28px, 8vw, 38px); line-height: 1.15; margin: 0; }
+      .obs-card h3, .news-card h3 { font-size: 20px; line-height: 1.35; margin: 6px 0 4px; }
+      .tag, .news-meta { line-height: 1.5; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient"></div>
+  <div class="wrap">
+    <section>
+      <div class="inner hero">
+        <div class="panel reveal">
+          <div class="eyebrow">全球热点早报 · Asia/Shanghai · 2026-07-31</div>
+          <h1>全球热点早报</h1>
+          <p class="lead">过去 24 小时，AI 主线明显从“再秀一次更强模型”转向 <strong>更划算的单位智能</strong>、<strong>科研入口争夺</strong>、<strong>生产级 Agent 治理</strong>、<strong>安全攻防 AI 化</strong> 与 <strong>重资产算力融资</strong>；非 AI 线则由 <strong>美伊冲突升级</strong>、<strong>英国央行警惕战争通胀</strong> 与 <strong>云巨头继续豪赌资本开支</strong> 同时驱动。</p>
+          <div class="summary-list"><div class="summary-item"><strong>最值得看 ①</strong>OpenAI 把 GPT-5.6 的卖点改成“更便宜也更能干”，AI 定价战进入第二阶段。</div><div class="summary-item"><strong>最值得看 ②</strong>Google 给 Gemini Managed Agents 补 hooks、预算和定时触发器，Agent 开始真往生产环境走。</div><div class="summary-item"><strong>最值得看 ③</strong>Google 说 6 月靠 AI 修掉 1,072 个 Chrome 漏洞，防守方也在被迫 AI 化。</div><div class="summary-item"><strong>最值得看 ④</strong>Anthropic 相关数据中心融资据称谈到 150 亿美元，算力竞赛继续往资本密集型升级。</div><div class="summary-item"><strong>最值得看 ⑤</strong>美国对伊朗发动“重型”打击、英国央行警告若战事升级可能加息，宏观与地缘重新压到市场前台。</div></div>
+        </div>
+        <div class="panel reveal">
+          <div class="eyebrow">今日仪表盘</div>
+          <div class="stats"><div class="stat"><div class="num">25</div><div>入选条目</div></div><div class="stat"><div class="num">6</div><div>AI 条目</div></div><div class="stat"><div class="num">24h</div><div>采集窗口</div></div><div class="stat"><div class="num">07:00</div><div>计划投递时间</div></div></div>
+          <div style="margin-top:20px;padding:18px;border-radius:18px;background:rgba(15,118,110,.08);border:1px solid rgba(15,118,110,.18)">
+            <div class="tag">AI重点观察</div>
+            <h3 style="font-size:28px;margin:14px 0 10px;line-height:1.2">AI 的新现实：从“更强模型”转向“更便宜、更可控、更重资产”</h3>
+            <p style="line-height:1.8;color:#234">今天 AI 的关键信号不是某个单独 demo，而是 <strong>OpenAI 开始主打 price-performance</strong>、<strong>Google 把 Agent 往生产系统打磨</strong>、<strong>安全攻防全面 AI 化</strong>、<strong>政府开始认真讨论更强控制</strong>，以及 <strong>算力竞赛越来越依赖巨额融资与基础设施</strong>。换句话说，行业正在从“能力表演”进入“成本、治理、资本与风险一起上桌”的阶段。</p>
+            <p class="footer-note">生成时间：2026-07-31 07:11:56 CST（Asia/Shanghai）</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="inner">
+        <div class="section-head reveal">
+          <div><div class="eyebrow">AI重点观察</div><h2>今天 AI 世界在同时发生什么？</h2></div>
+          <p>重点不再只是“模型又增强了多少”，而是 AI 正沿着定价、Agent 治理、安全外溢、科研分发与重资产基础设施几条线快速制度化。以下 4 个观察决定今天该怎么读 AI 新闻。</p>
+        </div>
+        <div class="observation-grid"><div class="obs-card reveal highlight">
+  <div class="tag">观察 01 / 定价</div>
+  <h3>前沿模型竞争从“谁最强”转向“谁更划算”</h3>
+  <p>OpenAI 连续两篇官方更新都在强调 efficiency、price-performance 与 intelligence per dollar，说明大客户现在更关心 ROI，而不是单次演示惊艳程度。</p>
+  <div class="why"><strong>为什么重要：</strong>这决定未来模型大战会更多落在价格、吞吐、部署效率与工作流整合上。</div>
+</div><div class="obs-card reveal">
+  <div class="tag">观察 02 / Agent</div>
+  <h3>Agent 正在从概念秀场转成“可控的生产系统”</h3>
+  <p>Google Managed Agents 新增 hooks、预算控制和 scheduled triggers，这些都不是噱头功能，而是企业上生产线前必须补齐的治理工具。</p>
+  <div class="why"><strong>为什么重要：</strong>真正的胜负手会是审计、限额、沙箱和工具调用治理，而不只是更长上下文。</div>
+</div><div class="obs-card reveal">
+  <div class="tag">观察 03 / 安全</div>
+  <h3>AI 正同时成为防守工具和新的攻击面</h3>
+  <p>Google 用 AI 大幅提高 Chrome 修洞速度；另一边，美国政府已因 OpenAI 相关黑客事件讨论更强控制，说明“更强能力”与“更大风险”正在同步放大。</p>
+  <div class="why"><strong>为什么重要：</strong>接下来安全预算、合规条款和模型权限边界会更快进入董事会层面。</div>
+</div><div class="obs-card reveal">
+  <div class="tag">观察 04 / 资本</div>
+  <h3>算力竞赛越来越像重工业，而不是纯软件故事</h3>
+  <p>Anthropic 配套数据中心融资、Amazon 上调全年 capex、市场继续追捧云基础设施，说明 AI 红利正在往电力、芯片、土地和融资能力集中。</p>
+  <div class="why"><strong>为什么重要：</strong>会讲模型故事已经不够，谁能拿到算力、现金流和基础设施，谁才更有持续性。</div>
+</div></div>
+      </div>
+    </section>
+
+    <section><div class="inner section-panel"><div class="section-head reveal"><div><div class="eyebrow">栏目 1 / AI动态</div><h2>AI动态</h2></div><p>按重要性排序，今天 AI 的核心主线集中在 price-performance、科研分发、Agent 工程、安全攻防与算力融资。每条卡片继续保留“原文标题 + 发生了什么 + 白话解说 + 为什么重要 + 原文摘录 + 原文链接”的正式结构。</p></div><div class="grid"><article class="news-card span-6 reveal highlight">
+  <span class="tag">🧠 定价 / 模型</span>
+  <h3>OpenAI 推出 GPT-5.6 新价格叙事：不是只更强，而是更会替企业省钱</h3>
+  <div class="news-meta">来源：OpenAI Blog RSS ｜ 时间：2026-07-30 18:00 CST</div>
+  <p><strong>原文标题：</strong>Advancing the price-performance frontier with GPT-5.6</p>
+  <p><strong>发生了什么：</strong>OpenAI 在官方 RSS 中强调 Luna 与 Terra 的 GPT-5.6 新定价，主打 price-performance frontier，核心卖点是更高效率模型能帮助企业把 AI workflow 规模化部署。</p>
+  <p><strong>白话解说：</strong>白话说，OpenAI 现在卖的不只是“最强模型”，而是“同样预算下能跑更多业务”。</p>
+  <div class="why"><strong>为什么重要：</strong>企业采购从今天起会更在意单位成本、吞吐和可复制部署，而不是单次 benchmark 的好看分数。</div>
+  <p><strong>原文摘录：</strong>“Explore lower GPT‑5.6 pricing for Luna and Terra—and how OpenAI’s more efficient models help enterprises deploy AI workflows at scale.”</p>
+  <p><a href="https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6" target="_blank" rel="noopener">原文链接</a></p>
+</article><article class="news-card span-6 reveal">
+  <span class="tag">🔬 科研 / 分发</span>
+  <h3>OpenAI 向 10 万名学术研究者免费开放高阶模型，先抢科研工作流入口</h3>
+  <div class="news-meta">来源：OpenAI Blog RSS ｜ 时间：2026-07-29 18:00 CST</div>
+  <p><strong>原文标题：</strong>Accelerating scientific discovery with ChatGPT for Academic Researchers</p>
+  <p><strong>发生了什么：</strong>OpenAI 宣布给 100,000 名 academic researchers 免费提供 ChatGPT 最先进模型的访问权限，用于科研、协作与发现。</p>
+  <p><strong>白话解说：</strong>这不只是教育优惠，更像在培养一批默认用 OpenAI 做文献、实验、写作和协作的长期高价值用户。</p>
+  <div class="why"><strong>为什么重要：</strong>谁先占住科研工作流，谁未来在专业场景的品牌与生态优势就更稳。</div>
+  <p><strong>原文摘录：</strong>“OpenAI is giving 100,000 academic researchers free access to ChatGPT's most advanced AI models to accelerate scientific research, collaboration, and discovery.”</p>
+  <p><a href="https://openai.com/index/chatgpt-for-academic-researchers" target="_blank" rel="noopener">原文链接</a></p>
+</article><article class="news-card reveal">
+  <span class="tag">📏 基准 / 工程</span>
+  <h3>OpenAI 拆解 ARC-AGI-3：两个 API 设置就把 GPT-5.6 分数抬了三倍</h3>
+  <div class="news-meta">来源：OpenAI Blog RSS ｜ 时间：2026-07-29 23:00 CST</div>
+  <p><strong>原文标题：</strong>How enabling two settings tripled our scores on the ARC-AGI-3 benchmark</p>
+  <p><strong>发生了什么：</strong>OpenAI 说，只要保留 reasoning 并启用 compaction，两项设置就能同时提升 GPT-5.6 在 ARC-AGI-3 上的成绩与效率。</p>
+  <p><strong>白话解说：</strong>意思是同一个模型，调法不同，落地效果可能完全是两回事。</p>
+  <div class="why"><strong>为什么重要：</strong>这会让“模型配置能力”和“推理过程管理”变成更值钱的企业工程能力。</div>
+  <p><strong>原文摘录：</strong>“How two API settings improved GPT-5.6 performance on ARC-AGI-3, boosting scores and efficiency by retaining reasoning and enabling compaction.”</p>
+  <p><a href="https://openai.com/index/how-two-settings-tripled-our-arc-agi-3-scores" target="_blank" rel="noopener">原文链接</a></p>
+</article><article class="news-card reveal">
+  <span class="tag">🛠️ Agent / 工程</span>
+  <h3>Google 给 Gemini Managed Agents 补 hooks、预算与定时触发器，明显冲着生产级去</h3>
+  <div class="news-meta">来源：Google AI Blog ｜ 时间：2026-07-29 00:00 CST</div>
+  <p><strong>原文标题：</strong>What’s new in Managed Agents in Gemini API</p>
+  <p><strong>发生了什么：</strong>Google 表示 Managed Agents 现默认使用 Gemini 3.6 Flash，并新增 environment hooks、budget controls、scheduled triggers 与 free tier access。</p>
+  <p><strong>白话解说：</strong>这不是在讲抽象 Agent 愿景，而是在补企业真会问的几件事：能不能管、能不能审、能不能限额。</p>
+  <div class="why"><strong>为什么重要：</strong>谁先把 Agent 做成稳定基础设施，谁更可能吃到下一阶段企业部署红利。</div>
+  <p><strong>原文摘录：</strong>“We’re announcing even more new capabilities in Managed Agents in Gemini API so developers can build reliable, production-ready agents.”</p>
+  <p><a href="https://blog.google/innovation-and-ai/technology/developers-tools/expanding-managed-agents-gemini-api-3-6-flash-hooks/" target="_blank" rel="noopener">原文链接</a></p>
+</article><article class="news-card reveal">
+  <span class="tag">🛡️ 安全 / 浏览器</span>
+  <h3>Google 说靠 AI 在 6 月修掉 1,072 个 Chrome 漏洞，已经超过过去两年总和</h3>
+  <div class="news-meta">来源：TechCrunch ｜ 时间：2026-07-31 02:57 CST</div>
+  <p><strong>原文标题：</strong>Google says it fixed more Chrome bugs in June than over the past two years, thanks to AI</p>
+  <p><strong>发生了什么：</strong>TechCrunch 援引 Google 数据称，Chrome 在 6 月的最近两次版本更新里共修复 1,072 个安全漏洞，超过此前 23 个版本、近两年的 1,036 个修复量总和。</p>
+  <p><strong>白话解说：</strong>白话说，攻击者会用 AI 找洞，防守方也已经被迫用 AI 加速补洞。</p>
+  <div class="why"><strong>为什么重要：</strong>这说明 AI 安全不再只是“担心被打”，而是整个安全开发流程都在被重新改写。</div>
+  <p><strong>原文摘录：</strong>“Google says it has patched more security flaws in its Chrome browser in the last month than in the past two years combined.”</p>
+  <p><a href="https://techcrunch.com/2026/07/30/google-says-it-fixed-more-chrome-bugs-in-june-than-over-the-past-two-years-thanks-to-ai/" target="_blank" rel="noopener">原文链接</a></p>
+</article><article class="news-card reveal">
+  <span class="tag">🏗️ 算力 / 融资</span>
+  <h3>Anthropic 配套数据中心融资据称谈到 150 亿美元，算力军备竞赛继续重资产化</h3>
+  <div class="news-meta">来源：CNBC ｜ 时间：2026-07-31 05:50 CST</div>
+  <p><strong>原文标题：</strong>Nexus Data Centers in advanced talks to secure $15B for Google-backed Anthropic data center</p>
+  <p><strong>发生了什么：</strong>CNBC 报道，Morgan Stanley 正牵头与 Nexus Data Centers 洽谈 150 亿美元融资，用于建设服务 Anthropic 的大型 AI 基础设施项目，Google 据称会以投资级信用为其背书。</p>
+  <p><strong>白话解说：</strong>这说明头部模型公司比的不只是算法，还包括谁能更快锁定土地、电力、贷款和长期算力。</p>
+  <div class="why"><strong>为什么重要：</strong>未来 AI 龙头的护城河，会越来越多地写在基础设施合同和资产负债表里。</div>
+  <p><strong>原文摘录：</strong>“Morgan Stanley is the lead banker engaging in advanced talks to lend $15 billion to Nexus Data Centers to build out a large artificial intelligence infrastructure project for Anthropic.”</p>
+  <p><a href="https://www.cnbc.com/2026/07/30/nexus-data-centers-in-advanced-talks-to-secure-15b-for-google-backed-anthropic-data-center.html" target="_blank" rel="noopener">原文链接</a></p>
+</article></div></div></section>
+
+    <section><div class="inner section-panel"><div class="section-head reveal"><div><div class="eyebrow">X/Twitter AI 动态</div><h2>X/Twitter AI 动态</h2></div><p>按规则，本栏必须先使用 follow-builders 的 prepare-digest.js 实时 JSON；但当前环境中指定脚本目录不存在，且回退文件 feed-x.json 也未找到，因此本栏只报告覆盖边界，不臆造任何推文摘要。</p></div><div class="grid"><article class="news-card span-6 reveal">
+  <span class="tag">A. 官方账号动态</span>
+  <h3>官方账号 live feed 缺失：本轮只能报告覆盖边界，不生成任何官方推文摘要</h3>
+  <div class="news-meta">来源：follow-builders 实时 JSON ｜ 时间：截至 2026-07-31 07:00 CST ｜ 状态：缺失</div>
+  <p><strong>发生了什么：</strong>按规则应先进入指定脚本目录运行 <code>node prepare-digest.js</code>，失败后再回退 <code>feed-x.json</code>；但当前环境中既找不到指定脚本目录，也找不到回退 JSON，因此无法验证 OpenAI、Anthropic、Google Labs、Google DeepMind、xAI 等官方账号过去 24 小时的真实发帖。</p>
+  <p><strong>白话解说：</strong>这不代表这些账号昨晚没发内容，只代表本轮没有可审计数据源，所以不能硬写。</p>
+  <div class="why"><strong>为什么重要：</strong>X/Twitter 专栏最容易因为“印象流”出错；把数据缺口写清楚，比把旧帖误当今日动态安全得多。</div>
+  <p><strong>原文摘录：</strong>本轮仅确认数据源缺失；未取得任何可验证官方推文 JSON，因此不生成实帖摘要。</p>
+</article><article class="news-card span-6 reveal">
+  <span class="tag">B. Builder / 创始人 / 投资人观点</span>
+  <h3>Builder / 创始人 / 投资人 live feed 同样缺失：本轮不生成观点卡片</h3>
+  <div class="news-meta">来源：follow-builders 实时 JSON ｜ 时间：截至 2026-07-31 07:00 CST ｜ 状态：缺失</div>
+  <p><strong>发生了什么：</strong>由于 live JSON 与回退 feed 均不存在，本轮无法确认 builder、创始人和投资人过去 24 小时真实发了哪些 AI 观点。</p>
+  <p><strong>白话解说：</strong>规则很简单：没有 JSON，就不把旧帖记忆、随机搜索或二手转述包装成“今日观点”。</p>
+  <div class="why"><strong>为什么重要：</strong>这能避免把历史讨论误写成今日新信号，也能保证 X 专栏始终只基于可追溯原帖。</div>
+  <p><strong>原文摘录：</strong>本轮 X/Twitter Builder 专栏仅报告数据缺口，不生成任何未经 JSON 验证的观点摘要。</p>
+</article></div></div></section>
+
+    <section><div class="inner section-panel"><div class="section-head reveal"><div><div class="eyebrow">栏目 2 / 科技</div><h2>科技</h2></div><p>今天的科技线索主要落在平台商业模式、消费级 AI 硬件、平台可用性和低质生成内容治理四条线上：它们共同说明，技术行业已经从“能不能做”转向“做出来以后怎么持续、怎么控质、怎么赚钱”。</p></div><div class="grid"><article class="news-card span-6 reveal">
+  <span class="tag">🍎 大厂财报 / 平台</span>
+  <h3>Apple 说游戏放缓和 App Store 规则变化拖累服务业务，平台现金牛没以前那么稳</h3>
+  <div class="news-meta">来源：TechCrunch ｜ 时间：2026-07-31 06:37 CST</div>
+  <p><strong>原文标题：</strong>Apple says gaming slowdown and App Store changes hurt services growth</p>
+  <p><strong>发生了什么：</strong>TechCrunch 报道，Apple 服务业务付费订阅虽已超过 15 亿，但季度服务收入仍低于华尔街预期；公司把原因归结为手游放缓和美国支付规则变化等因素。</p>
+  <p><strong>白话解说：</strong>白话说，硬件还在卖，但 App Store 这台印钞机开始受到监管和商业模式变化的双重挤压。</p>
+  <div class="why"><strong>为什么重要：</strong>这关系到 Apple 未来利润结构，也会影响市场如何评估“平台抽成型”业务的稳定性。</div>
+  <p><strong>原文摘录：</strong>“Apple said a slowdown in mobile gaming and changes to the App Store’s business model … weighed on its services business.”</p>
+  <p><a href="https://techcrunch.com/2026/07/30/apple-says-gaming-slowdown-and-app-store-changes-hurt-services-growth/" target="_blank" rel="noopener">原文链接</a></p>
+</article><article class="news-card reveal">
+  <span class="tag">🎧 AI 硬件</span>
+  <h3>Friend 2.0 回归并加入语音人格，AI 陪伴硬件继续试探“情感入口”</h3>
+  <div class="news-meta">来源：TechCrunch ｜ 时间：2026-07-31 03:44 CST</div>
+  <p><strong>原文标题：</strong>Friend, the lonely AI wearable, returns with a new voice and a much bigger price tag</p>
+  <p><strong>发生了什么：</strong>TechCrunch 报道，Avi Schiffmann 的 AI wearable “Friend” 推出 2.0 版本，新增内置扬声器和更鲜明的持续性人格，但售价也更高。</p>
+  <p><strong>白话解说：</strong>这类产品不是在卖生产力，而是在赌“长期陪伴”会成为 AI 的另一个消费级入口。</p>
+  <div class="why"><strong>为什么重要：</strong>如果用户真愿意为陪伴型硬件持续付费，AI 商业化就会多出一条与办公助手完全不同的路径。</div>
+  <p><strong>原文摘录：</strong>“Friend now comes with a built-in speaker that can project a unique and consistent personality to its user.”</p>
+  <p><a href="https://techcrunch.com/2026/07/30/friend-the-lonely-ai-wearable-returns-with-a-new-voice-and-a-much-bigger-price-tag/" target="_blank" rel="noopener">原文链接</a></p>
+</article><article class="news-card reveal">
+  <span class="tag">🎮 平台可靠性</span>
+  <h3>Xbox 技术负责人承认大规模故障“不该影响实体光盘游戏”，平台依赖问题又暴露一次</h3>
+  <div class="news-meta">来源：BBC News Tech ｜ 时间：2026-07-30 22:53 CST</div>
+  <p><strong>原文标题：</strong>Xbox tech boss says “unacceptable” outage should not have affected disc games</p>
+  <p><strong>发生了什么：</strong>BBC 报道，Xbox 周一约 20 小时的服务中断不仅影响登录和游戏库，还让部分玩家连实体光盘游戏都无法正常启动；技术负责人称这种情况“不可接受”。</p>
+  <p><strong>白话解说：</strong>白话说，你买的是光盘，但最后还是被平台认证系统卡住了。</p>
+  <div class="why"><strong>为什么重要：</strong>这会继续推动关于数字平台控制权、离线可用性和用户所有权的争论。</div>
+  <p><strong>原文摘录：</strong>“We're looking into reports that some players were unable to access games using discs as expected during the service interruption.”</p>
+  <p><a href="https://www.bbc.co.uk/news/articles/cq5637p7qpno" target="_blank" rel="noopener">原文链接</a></p>
+</article><article class="news-card reveal">
+  <span class="tag">🧹 内容治理 / 平台</span>
+  <h3>LinkedIn 真的加了“像 AI 垃圾内容”举报按钮，平台开始正面对付生成式灌水</h3>
+  <div class="news-meta">来源：The Verge ｜ 时间：2026-07-31 06:33 CST</div>
+  <p><strong>原文标题：</strong>LinkedIn actually adds a “seems like AI slop” button</p>
+  <p><strong>发生了什么：</strong>The Verge 报道，LinkedIn 正推出“Seems like AI slop”举报入口，并同步移除一个 AI enhance 功能，以降低平台上低质生成内容的泛滥。</p>
+  <p><strong>白话解说：</strong>这代表平台已经不满足于鼓励大家多用 AI，而是开始面对“AI 产能过剩”带来的内容污染。</p>
+  <div class="why"><strong>为什么重要：</strong>未来所有内容平台都得回答一个问题：怎么区分效率工具和垃圾制造机。</div>
+  <p><strong>原文摘录：</strong>“LinkedIn is introducing an actual button that lets you flag a post as something that ‘Seems like AI slop.’”</p>
+  <p><a href="https://www.theverge.com/ai-artificial-intelligence/973384/linkedin-seems-like-ai-slop-button" target="_blank" rel="noopener">原文链接</a></p>
+</article></div></div></section>
+
+    <section><div class="inner section-panel"><div class="section-head reveal"><div><div class="eyebrow">栏目 3 / 金融 / 资本市场</div><h2>金融 / 资本市场</h2></div><p>资本市场今天主要看三件事：云巨头还在继续豪掷 AI capex，AI 主题交易开始更残酷地淘汰错误仓位，而中东冲突再次把利率与通胀变量拉回桌面。</p></div><div class="grid"><article class="news-card span-6 reveal">
+  <span class="tag">☁️ 云 / 资本开支</span>
+  <h3>Amazon 把 2026 年 capex 预测上调到 2,200 亿美元，云和 AI 需求还在逼它继续砸钱</h3>
+  <div class="news-meta">来源：CNBC ｜ 时间：2026-07-31 05:31 CST</div>
+  <p><strong>原文标题：</strong>Amazon (AMZN) Q2 earnings report 2026</p>
+  <p><strong>发生了什么：</strong>Amazon 第二季度云业务增长强劲，AWS 销售同比增长 37%；公司同时把今年资本开支目标从 2,000 亿美元上调到 2,200 亿美元。</p>
+  <p><strong>白话解说：</strong>白话说，投资人现在对“烧钱建算力”并不反感，只要你是能把 AI 需求吃进收入里的云巨头。</p>
+  <div class="why"><strong>为什么重要：</strong>这说明市场正在把“AI 花钱”分成两类：能转成云收入的叫扩张，转不成收入的才叫负担。</div>
+  <p><strong>原文摘录：</strong>“Amazon reported surging cloud growth during the second quarter, pointing to strong artificial intelligence demand, and the company boosted its capital spending forecast for the year.”</p>
+  <p><a href="https://www.cnbc.com/2026/07/30/amazon-amzn-q2-earnings-report-2026.html" target="_blank" rel="noopener">原文链接</a></p>
+</article><article class="news-card span-6 reveal">
+  <span class="tag">📉 风险偏好 / 对冲基金</span>
+  <h3>前 OpenAI 研究员 Leopold Aschenbrenner 旗下基金据称清掉全部公开股票仓位</h3>
+  <div class="news-meta">来源：CNBC ｜ 时间：2026-07-31 05:29 CST</div>
+  <p><strong>原文标题：</strong>Why AI investor Leopold Aschenbrenner is selling all stocks</p>
+  <p><strong>发生了什么：</strong>CNBC 报道，Leopold Aschenbrenner 的对冲基金在 AI 股票大幅亏损和做空软件股失利后，正出售公开市场全部股票持仓并处理流动性压力。</p>
+  <p><strong>白话解说：</strong>白话说，AI 叙事再热，错的仓位和过高杠杆一样会把人打回现实。</p>
+  <div class="why"><strong>为什么重要：</strong>这提醒市场：AI 交易已经进入更残酷的分化期，不是沾 AI 就自动上涨。</div>
+  <p><strong>原文摘录：</strong>“The battered hedge fund founded by former OpenAI researcher Leopold Aschenbrenner is unwinding many of its trades after big losses on artificial intelligence stocks…”</p>
+  <p><a href="https://www.cnbc.com/2026/07/30/leopold-aschenbrenners-hedge-fund-is-facing-steep-ai-losses.html" target="_blank" rel="noopener">原文链接</a></p>
+</article><article class="news-card reveal">
+  <span class="tag">🏦 利率 / 宏观</span>
+  <h3>英国央行继续按兵不动，但放话：如果伊朗战事升级，不排除重新加息</h3>
+  <div class="news-meta">来源：BBC News Business ｜ 时间：2026-07-31 00:33 CST</div>
+  <p><strong>原文标题：</strong>Bank holds interest rates but says it is ready to raise them if Iran war escalates</p>
+  <p><strong>发生了什么：</strong>英国央行连续第五次维持利率不变，但同时警告，若伊朗战争升级推高油气价格和通胀，政策可能被迫再度收紧。</p>
+  <p><strong>白话解说：</strong>这等于告诉市场：现在不是“安心等降息”，而是继续盯着中东和能源。</p>
+  <div class="why"><strong>为什么重要：</strong>地缘冲突重新回到宏观定价核心，会直接影响全球债券、汇率和成长股估值。</div>
+  <p><strong>原文摘录：</strong>“The Bank of England has kept interest rates unchanged for the fifth meeting in a row but has indicated it could raise them if the Iran war escalates.”</p>
+  <p><a href="https://www.bbc.co.uk/news/articles/cp8e6m4rndgo" target="_blank" rel="noopener">原文链接</a></p>
+</article></div></div></section>
+
+    <section><div class="inner section-panel"><div class="section-head reveal"><div><div class="eyebrow">栏目 4 / 国际时事</div><h2>国际时事</h2></div><p>国际部分今天最值得盯的是三类风险：中东战事升级、俄乌冲突对欧洲安全的持续外溢，以及边境与移民压力重新进入欧洲政治中心。这三条线都会直接反馈到全球风险资产与政策议程上。</p></div><div class="grid"><article class="news-card span-6 reveal highlight">
+  <span class="tag">🌍 中东 / 军事</span>
+  <h3>美军对伊朗发动“重型”打击，中东局势重新抬升全球风险温度</h3>
+  <div class="news-meta">来源：BBC News World ｜ 时间：2026-07-30 18:49 CST</div>
+  <p><strong>原文标题：</strong>US launches “heavy” strikes on Iran after attempted attack on American troops</p>
+  <p><strong>发生了什么：</strong>BBC 报道，美军在伊朗试图袭击驻中东美军后，对伊朗境内多个伊斯兰革命卫队目标发动“heavy wave”报复性打击。</p>
+  <p><strong>白话解说：</strong>白话说，前几天短暂停火的窗口又关上了，市场得重新把油价、航运和避险情绪算进去。</p>
+  <div class="why"><strong>为什么重要：</strong>一旦冲突持续升级，受影响的不只是地区安全，而是全球通胀和风险资产定价。</div>
+  <p><strong>原文摘录：</strong>“The US military says it has completed a ‘heavy wave’ of strikes against Iran in retaliation…”</p>
+  <p><a href="https://www.bbc.co.uk/news/articles/c74gwdzywmeo" target="_blank" rel="noopener">原文链接</a></p>
+</article><article class="news-card span-6 reveal">
+  <span class="tag">🇺🇦 乌克兰 / 冲突</span>
+  <h3>泽连斯基称俄导弹袭击致同一家五口遇难，乌克兰平民伤亡仍在加深</h3>
+  <div class="news-meta">来源：BBC News World ｜ 时间：2026-07-30 23:20 CST</div>
+  <p><strong>原文标题：</strong>Five members of same family killed in Russian missile attack, Zelensky says</p>
+  <p><strong>发生了什么：</strong>BBC 报道，乌克兰总统泽连斯基称，俄军导弹袭击摧毁一户人家住宅，导致同一家五口遇难，其中包括多名儿童。</p>
+  <p><strong>白话解说：</strong>这类新闻提醒大家，俄乌战争虽不总占头条，但对欧洲安全与人道局势的消耗从未暂停。</p>
+  <div class="why"><strong>为什么重要：</strong>冲突延长意味着欧洲财政、军援与安全议程都会继续被牵制。</div>
+  <p><strong>原文摘录：</strong>“Zelensky shared a picture of the Voronov family … and three of their children … had all been killed after a missile decimated their home.”</p>
+  <p><a href="https://www.bbc.co.uk/news/articles/cy8mk59l5jzo" target="_blank" rel="noopener">原文链接</a></p>
+</article><article class="news-card reveal">
+  <span class="tag">🚨 欧洲边境</span>
+  <h3>数百名移民从摩洛哥游向西班牙休达，欧洲边境压力突然升温</h3>
+  <div class="news-meta">来源：BBC News World ｜ 时间：2026-07-31 05:24 CST</div>
+  <p><strong>原文标题：</strong>Hundreds of migrants swim from Morocco to Spanish enclave of Ceuta</p>
+  <p><strong>发生了什么：</strong>BBC 报道，过去一周数百名移民从摩洛哥进入西班牙北非飞地休达，当地政府称资源已被压到极限，并要求马德里介入。</p>
+  <p><strong>白话解说：</strong>白话说，这不是单一偷渡事件，而是会迅速演变成欧洲内部政治和治安议题。</p>
+  <div class="why"><strong>为什么重要：</strong>边境问题一旦升温，往往会马上进入欧盟和成员国内部的政策争论。</div>
+  <p><strong>原文摘录：</strong>“The territory's leader said the influx is overwhelming resources and urged the Spanish government to intervene.”</p>
+  <p><a href="https://www.bbc.co.uk/news/articles/cg4drwzkrkxo" target="_blank" rel="noopener">原文链接</a></p>
+</article><article class="news-card reveal">
+  <span class="tag">🇵🇱 北约边界 / 安全</span>
+  <h3>波兰总理称深落波兰境内的导弹“极可能来自俄罗斯”，北约东翼神经再绷紧</h3>
+  <div class="news-meta">来源：BBC News World ｜ 时间：2026-07-30 23:35 CST</div>
+  <p><strong>原文标题：</strong>Missile that left crater deep inside Poland was probably Russian - Polish PM</p>
+  <p><strong>发生了什么：</strong>BBC 报道，一个在波兰东部留下 10 米宽弹坑的导弹被总理图斯克称“极大概率”为俄罗斯巡航导弹，且带有武装载荷。</p>
+  <p><strong>白话解说：</strong>这说明乌克兰战火并不总停留在边境线内，周边国家也可能被迫承受更直接的安全压力。</p>
+  <div class="why"><strong>为什么重要：</strong>任何擦边或误入事件都会迅速推高北约内部的军事与外交警觉。</div>
+  <p><strong>原文摘录：</strong>“Polish Prime Minister Donald Tusk has said … [it] was ‘in all probability’ a Russian cruise missile, and it was armed.”</p>
+  <p><a href="https://www.bbc.co.uk/news/articles/cwymkgenv2ro" target="_blank" rel="noopener">原文链接</a></p>
+</article></div></div></section>
+
+    <section><div class="inner section-panel"><div class="section-head reveal"><div><div class="eyebrow">栏目 5 / 政治 / 政策</div><h2>政治 / 政策</h2></div><p>今天的政策线索主要集中在三条线上：AI 安全事件开始改变华盛顿口风，法院正在重画政府与模型公司的边界，而英国继续推动地方财政与治理权下放。</p></div><div class="grid"><article class="news-card span-6 reveal">
+  <span class="tag">🏛️ AI 监管</span>
+  <h3>特朗普称正考虑对 AI 加强控制，华盛顿口风开始变了</h3>
+  <div class="news-meta">来源：BBC News Tech ｜ 时间：2026-07-30 15:23 CST</div>
+  <p><strong>原文标题：</strong>Trump considering AI controls after OpenAI hacking incidents</p>
+  <p><strong>发生了什么：</strong>美国总统特朗普表示，在近期与 OpenAI 工具相关的网络安全事件后，政府正考虑对 AI 工具施加更多控制，同时强调仍要保持美国领先。</p>
+  <p><strong>白话解说：</strong>白话说，原本偏“少管”的态度开始松动，安全事件正在把 AI 政策从鼓励创新拉向“边放边管”。</p>
+  <div class="why"><strong>为什么重要：</strong>一旦白宫调门变化，后续出口管制、责任规则和联邦采购要求都可能跟着收紧。</div>
+  <p><strong>原文摘录：</strong>“We're looking at AI, we're looking at controls, we're also making sure that we lead.”</p>
+  <p><a href="https://www.bbc.co.uk/news/articles/c20dppq3y90o" target="_blank" rel="noopener">原文链接</a></p>
+</article><article class="news-card span-6 reveal">
+  <span class="tag">⚖️ 法院 / 政府采购</span>
+  <h3>法官质疑特朗普政府把 Anthropic 列为“供应链风险”缺乏证据</h3>
+  <div class="news-meta">来源：TechCrunch ｜ 时间：2026-07-31 04:26 CST</div>
+  <p><strong>原文标题：</strong>Judge says Trump admin still lacks evidence for Anthropic “supply-chain risk” label</p>
+  <p><strong>发生了什么：</strong>TechCrunch 报道，联邦法官在听证会上表示，特朗普政府尚未拿出足够证据证明 Anthropic 构成供应链风险，也质疑因此全面禁止联邦使用其技术的合理性。</p>
+  <p><strong>白话解说：</strong>白话说，AI 公司和政府的关系正从“买不买”走到“能不能因为立场分歧就封杀”。</p>
+  <div class="why"><strong>为什么重要：</strong>这会影响未来联邦采购、模型供应商合规边界，以及企业是否敢公开反对政府使用场景。</div>
+  <p><strong>原文摘录：</strong>“A federal judge said the Trump administration has not presented enough evidence to justify labeling Anthropic a supply-chain risk…”</p>
+  <p><a href="https://techcrunch.com/2026/07/30/judge-says-trump-admin-still-lacks-evidence-for-anthropic-supply-chain-risk-label/" target="_blank" rel="noopener">原文链接</a></p>
+</article><article class="news-card reveal">
+  <span class="tag">🗳️ 地方治理 / 财税</span>
+  <h3>英国将让英格兰地区市长分享部分所得税收入，地方分权继续前推</h3>
+  <div class="news-meta">来源：BBC News ｜ 时间：2026-07-31 05:32 CST</div>
+  <p><strong>原文标题：</strong>Andy Burnham to give regional mayors share of income tax</p>
+  <p><strong>发生了什么：</strong>BBC 报道，英国首相 Andy Burnham 计划首次让英格兰城市地区市长分享所得税收入，并保留更多商业税收，用于住房、交通和技能等地方事务。</p>
+  <p><strong>白话解说：</strong>白话说，伦敦正尝试把部分“收钱和花钱”的权力一起往地方放，而不是只放责任不放资源。</p>
+  <div class="why"><strong>为什么重要：</strong>如果这一方向持续，英国地方政府的财政激励和区域发展竞争方式都会改变。</div>
+  <p><strong>原文摘录：</strong>“Prime Minister Andy Burnham will give all mayors of city regions in England a share of income tax revenue for the first time…”</p>
+  <p><a href="https://www.bbc.co.uk/news/articles/c4g3eyg60e0o" target="_blank" rel="noopener">原文链接</a></p>
+</article></div></div></section>
+
+    <section><div class="inner section-panel"><div class="section-head reveal"><div><div class="eyebrow">市场晨间观察</div><h2>市场晨间观察</h2></div><p>今晨市场更适合用“港股修复、美股强势、加密温和跟涨”来理解。这里继续保留“点位 + 解释 + 为什么重要 + 行情链接”的正式结构。</p></div><div class="grid"><article class="news-card span-6 reveal">
+  <span class="tag">🇭🇰 港股</span>
+  <h3>港股先看收盘锚点：恒指报 25,807.92，日涨约 1.96%</h3>
+  <div class="news-meta">来源：Yahoo Finance ｜ 抓取时间：2026-07-31 07:00 CST</div>
+  <p><strong>原文标题：</strong>Yahoo Finance — HANG SENG INDEX (^HSI)</p>
+  <p><strong>发生了什么：</strong>Yahoo Finance 数据显示，恒生指数最近一个可得收盘点位为 25,807.92，较前一日上涨约 1.96%。</p>
+  <p><strong>白话解说：</strong>港股今晨先看外盘地缘冲击会不会压掉这波修复，以及资金是否继续偏向大型科技与平台股。</p>
+  <div class="why"><strong>为什么重要：</strong>若恒指在外部风险抬头时仍有承接，说明区域成长风险偏好并未完全退潮。</div>
+  <p><strong>原文摘录：</strong>HANG SENG INDEX (^HSI) 25,807.92 ｜ +1.96%。</p>
+  <p><a href="https://finance.yahoo.com/quote/%5EHSI/" target="_blank" rel="noopener">原文链接</a></p>
+</article><article class="news-card span-6 reveal">
+  <span class="tag">🇺🇸 美股</span>
+  <h3>隔夜美股反而大涨：标普 7,437.63，纳指 25,122.18，云与 AI 基建继续领跑</h3>
+  <div class="news-meta">来源：Yahoo Finance ｜ 抓取时间：2026-07-31 07:00 CST</div>
+  <p><strong>原文标题：</strong>Yahoo Finance — S&amp;P 500 / Nasdaq Composite</p>
+  <p><strong>发生了什么：</strong>Yahoo Finance 数据显示，标普 500 收于 7,437.63，单日涨约 1.66%；纳指收于 25,122.18，涨约 2.78%。</p>
+  <p><strong>白话解说：</strong>白话说，市场一边担心地缘和利率，一边又继续把真正能吃到 AI 订单的大市值公司往上推。</p>
+  <div class="why"><strong>为什么重要：</strong>这说明风险偏好并未消失，只是更加集中在“能兑现收入的 AI 基建资产”上。</div>
+  <p><strong>原文摘录：</strong>S&P 500 7,437.63 ｜ +1.66% ｜ Nasdaq Composite 25,122.18 ｜ +2.78%。</p>
+  <p><a href="https://finance.yahoo.com/quote/%5EGSPC/" target="_blank" rel="noopener">原文链接</a></p>
+</article><article class="news-card reveal">
+  <span class="tag">₿ 加密</span>
+  <h3>比特币温和走强：约 64,789.95 美元，24 小时约涨 1.38%</h3>
+  <div class="news-meta">来源：Yahoo Finance ｜ 抓取时间：2026-07-31 07:00 CST</div>
+  <p><strong>原文标题：</strong>Yahoo Finance — Bitcoin (BTC-USD)</p>
+  <p><strong>发生了什么：</strong>Yahoo Finance 数据显示，比特币约报 64,789.95 美元，较前一日收盘上涨约 1.38%。</p>
+  <p><strong>白话解说：</strong>这更像跟着全球风险偏好温和抬头，而不是币圈自己出现了决定性新叙事。</p>
+  <div class="why"><strong>为什么重要：</strong>当加密和美股一起走强时，说明市场暂时还愿意承担增长型风险。</div>
+  <p><strong>原文摘录：</strong>BTC-USD 64,789.95 ｜ +1.38%。</p>
+  <p><a href="https://finance.yahoo.com/quote/BTC-USD/" target="_blank" rel="noopener">原文链接</a></p>
+</article></div></div></section>
+
+    <section>
+      <div class="inner">
+        <div class="panel reveal">
+          <div class="section-head" style="margin-bottom:10px;"><div><div class="eyebrow">信息来源</div><h2 style="font-size:clamp(28px,4vw,52px)">Sources</h2></div><p>优先使用 OpenAI、Google、TechCrunch、BBC、CNBC、The Verge、SEC RSS 与 Yahoo Finance。当前 follow-builders 指定目录与回退 JSON 均不存在，因此 X/Twitter 专栏按规则只报告“数据缺口”。</p></div>
+          <ul class="sources"><li>OpenAI Blog RSS —— GPT-5.6 定价、Academic Researchers、ARC-AGI-3 设置优化。</li><li>Google AI Blog / Google Blog —— Managed Agents 的 hooks、预算与触发器等更新。</li><li>TechCrunch —— Google 用 AI 修复 Chrome 漏洞、Apple 服务业务、Friend 2.0、Anthropic 供应链风险案。</li><li>BBC News World / Business / Tech —— 美国打击伊朗、乌克兰平民伤亡、休达移民压力、波兰导弹事件、英国央行、AI 控制口风变化、Xbox 故障。</li><li>CNBC —— Amazon capex、Anthropic 数据中心融资、Leopold Aschenbrenner 基金去杠杆。</li><li>The Verge —— LinkedIn 平台治理 AI 低质内容。</li><li>SEC RSS —— 小企业资本形成顾问委员会续会信息，作为本轮政策背景补充来源之一。</li><li>Yahoo Finance —— 恒指、标普、纳指、比特币行情。</li><li>说明：web_search 在当前环境中返回 AUTH_ERROR，因此正文摘要主要基于可抓取 RSS、公开页面 meta 描述、页面正文可验证段落与原始链接整理。</li><li>说明：ai-news-zh、follow-builders 技能缺失，且指定脚本目录与 feed-x.json 均不存在；X/Twitter 专栏已严格按“无可信 JSON 则不生成推文摘要”的规则处理。</li><li>说明：OpenAI 正文页面在当前环境下返回 403，因此 OpenAI 条目中的原文摘录基于其官方 RSS 描述语句整理，但原始链接仍保留官方链接。</li></ul>
+          <p class="footer-note">正式公开链接：https://global-briefing-29c.pages.dev/ ｜ 本页已按 2026-04-15 正式改版版式结构生成。</p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+    const io = new IntersectionObserver((entries)=>{ entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add("visible"); }); }, { threshold:0.12 });
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
